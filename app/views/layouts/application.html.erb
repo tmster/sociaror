@@ -13,19 +13,19 @@
       <div class="masthead">
         <div class="header" style="height: 40px;">
           <ul class="nav nav-pills pull-right">
-            <li><a href="#">Logowanie</a></li>
-            <li><a href="#">Rejestracja</a></li>
+            <li><%= link_to "Logowanie", "#" %></li>
+            <li><%= link_to "Rejestracja", "#" %></li>
           </ul>
           <h3 class="text-muted">Sociaror</h3>
         </div>
       </div>
         <ul class="nav nav-justified">
-          <li class="active"><a href="#">Strona Głowna</a></li>
-          <li><a href="#">Newsy</a></li>
-          <li><a href="#">Projekty</a></li>
-          <li><a href="#">Wykop</a></li>
-          <li><a href="#">Pytania i Odpowiedzi</a></li>
-          <li><a href="#">Użytkownicy</a></li>
+          <li class="active"><%= link_to "Strona Główna", root_path %></li>
+          <li><%= link_to "Newsy", "#" %></li>
+          <li><%= link_to "Projekty", "#" %></li>
+          <li><%= link_to "Wykop", "#" %></li>
+          <li><%= link_to "Pytania i Odpowiedzi", "#" %></li>
+          <li><%= link_to "Użytkownicy", "#" %></li>
         </ul>
         <%= yield %>
 

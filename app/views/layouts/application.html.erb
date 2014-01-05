@@ -6,9 +6,40 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+ <body>
 
-<%= yield %>
+    <div class="container">
 
-</body>
+      <div class="masthead">
+        <div class="header" style="height: 40px;">
+          <ul class="nav nav-pills pull-right">
+            <li><a href="#">Logowanie</a></li>
+            <li><a href="#">Rejestracja</a></li>
+          </ul>
+          <h3 class="text-muted">Sociaror</h3>
+        </div>
+      </div>
+        <ul class="nav nav-justified">
+          <li class="active"><a href="#">Strona Głowna</a></li>
+          <li><a href="#">Newsy</a></li>
+          <li><a href="#">Projekty</a></li>
+          <li><a href="#">Wykop</a></li>
+          <li><a href="#">Pytania i Odpowiedzi</a></li>
+          <li><a href="#">Użytkownicy</a></li>
+        </ul>
+        <%= yield %>
+
+
+      <!-- Site footer -->
+      <div class="footer">
+        <p>&copy; Company 2013</p>
+      </div>
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  </body>
 </html>

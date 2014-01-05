@@ -13,6 +13,7 @@ end
 group :assets do
   gem 'sass-rails',   '3.2.5'
   gem 'coffee-rails', '3.2.2'
+  gem 'bootstrap-sass', '~> 3.0.3.0'
 
   gem 'uglifier', '1.2.3'
 end
@@ -22,6 +23,8 @@ gem 'rspec-rails'
 
 gem 'jquery-rails', '2.0.2'
 
+
 group :production do
   gem 'pg', '0.12.2'
 end
+	

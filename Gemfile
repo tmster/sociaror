@@ -17,12 +17,14 @@ group :assets do
 
   gem 'uglifier', '1.2.3'
 end
-
-gem 'rspec'
-gem 'rspec-rails'
+group :test do
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'factory_girl_rails', '4.1.0'
+end
 
 gem 'jquery-rails', '2.0.2'
-
 
 group :production do
   gem 'pg', '0.12.2'

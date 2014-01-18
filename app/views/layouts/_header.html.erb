@@ -1,10 +1,17 @@
 <div class="masthead">
     <div class="header" style="height: 40px;">
          <ul class="nav nav-pills pull-right">
-            <li><%= link_to "Logowanie", "#" %></li>
+          <% if signed_in? %>
+            <li><%= link_to "Users", '#' %></li>
+            <li><%= link_to "Profile", current_user %></li>
+            <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+          <% else %>
+            <li><%= link_to "Logowanie", signin_path %></li>
             <li><%= link_to "Rejestracja", signup_path %></li>
+          <% end %>
+
          </ul>
-         <h3 class="text-muted">Sociaror</h3>
+         <h3 class="text-muted">Sociaror<%= current_user.email %></h3>
     </div>
 </div>
 <ul class="nav nav-justified">

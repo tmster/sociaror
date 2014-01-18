@@ -9,13 +9,13 @@ describe "User pages" do
     before { visit user_path(user) }
 
     it { should have_selector('h1',    text: user.name) }
-    it { should have_selector('title', text: "#{user.name} | #{base_title}") }
+    it { should have_title("#{base_title} | #{user.name}") }
   end
   describe "signup page" do
     before { visit signup_path }
 
     it { should have_selector('h1',    text: 'Sign up') }
-    it { should have_selector('title', text: "Sign up | #{base_title}") }
+    it { should have_title("#{base_title} | Sign up") }
   end
   describe "signup" do
 

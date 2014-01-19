@@ -4,6 +4,7 @@
           <% if signed_in? %>
             <li><%= link_to "Users", '#' %></li>
             <li><%= link_to "Profile", current_user %></li>
+            <li><%= link_to "Settings", edit_user_path(current_user) %></li>
             <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
           <% else %>
             <li><%= link_to "Logowanie", signin_path %></li>
@@ -11,7 +12,7 @@
           <% end %>
 
          </ul>
-         <h3 class="text-muted">Sociaror<%= current_user.email %></h3>
+         <h3 class="text-muted">Sociaror</h3>
     </div>
 </div>
 <ul class="nav nav-justified">

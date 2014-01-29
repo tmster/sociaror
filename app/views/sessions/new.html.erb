@@ -1,19 +1,19 @@
-<% provide(:title, "Sign in") %>
-<h1>Sign in</h1>
+<% provide(:title, "Logowanie") %>
+<h1>Zaloguj Się</h1>
 
 <div class="row">
-  <div class="span6 offset3">
-    <%= form_for(:session, url: sessions_path) do |f| %>
+  <div class="span6 offset3 form-signin">
+    <%= bootstrap_form_for(:session, url: sessions_path, class: 'form-signin') do |f| %>
 
-      <%= f.label :email %>
-      <%= f.text_field :email %>
+      
+      <%= f.text_field :email, hide_label: :true, placeholder: "Adres Email" %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+      
+      <%= f.password_field :password, hide_label: :true, placeholder: "Hasło" %>
 
-      <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+      <%= f.submit "Zaloguj", class: "btn btn-large btn-primary" %>
     <% end %>
 
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+    <p>Jesteś nowy? <%= link_to "zarejestruj się!", signup_path %></p>
   </div>
 </div>

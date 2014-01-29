@@ -155,6 +155,10 @@ pl:
       create: Utwórz %{model}
       submit: Zapisz %{model}
       update: Aktualizuj %{model}
+    label:
+      user:
+        name: Login
+        body: Post Content
   number:
     currency:
       format:
@@ -223,3 +227,11 @@ pl:
   activerecord:
     errors:
       <<: *errors
+    models:
+      user: Użytkownik
+    attributes:
+      user:
+        name: Login
+        email: Email
+        password: Hasło
+        password_confirmation: Potwierdzenie hasła

@@ -1,20 +1,19 @@
-<% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
+<% provide(:title, 'Rejestracja') %>
+<h1>Rejestracja</h1>
 
 <div class="row">
   <div class="span6 offset3">
     <%= bootstrap_form_for(@user, style: :horizontal, left: "col-sm-4", right: "col-sm-8") do |f| %>
-      <%= render 'shared/error_messages' %>
 
         <%= f.text_field :name, placeholder: "Nazwa", help: "4-16 znaków" %>
 
         <%= f.text_field :email, placeholder: "login@example.com", help: "6 - max. 32 znaki, forma zgodna ze standardem adresów email"  %>
 
         <%= f.password_field :password, placeholder: "*****", help: "8 - 32 znaki, min. 1 cyfra, min. 1 znak specjalny, min. 1 litera"  %>
-        
+
         <%= f.password_field :password_confirmation, placeholder: "*****" %>
 
-        <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+        <%= f.submit "Zarejestruj", class: "btn btn-large btn-primary" %>
 
     <% end %>
   </div>

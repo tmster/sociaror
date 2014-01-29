@@ -1,6 +1,10 @@
 Sociaror::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+namespace :admin do
+  resources :admin
+  root :to => "admin#index"
+end
 
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'

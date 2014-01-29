@@ -11,7 +11,9 @@ end
 
 module Sociaror
   class Application < Rails::Application
+    I18n.default_locale = :pl
         I18n.enforce_available_locales = true
+config.i18n.available_locales = :pl
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

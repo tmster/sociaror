@@ -11,6 +11,7 @@ end
 
 module Sociaror
   class Application < Rails::Application
+    I18n.enforce_available_locales = false
     I18n.default_locale = :pl
 config.i18n.available_locales = [:pl,:en]
     # Settings in config/environments/* take precedence over those specified here.

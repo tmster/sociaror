@@ -51,24 +51,16 @@
                             <th class="text-center">Akcje</th>
                         </tr>
                     </thead>
-                            <tr>
-                                <td>1</td>
-                                <td>admin</td>
-                                <td>admin@admin.com</td>
-                                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span></a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></a></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>test1</td>
-                                <td>test1@example.com</td>
-                                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span></a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></a></td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>test2</td>
-                                <td>test2@example.com/td>
-                                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span></a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></a></td>
-                            </tr>
+                    	<% @users.each do |user| %>
+					     <tr>
+					      <td><%= user.id %></td>
+					      <td><%= user.name %></td>
+					      <td><%= user.email %></td>
+					      <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span></a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></a></td>
+					     </tr>
+					  <% end %>
+
+
                     </table>
             </div><!--/span-->           
            </div><!--/row-->

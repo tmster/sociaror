@@ -237,3 +237,5 @@ pl:
         password_confirmation: Potwierdzenie hasła
         firs_namet: Imię
         last_name: Nazwisko
+        email_visibility: Widoczność Adresu email
+        gender: Płeć

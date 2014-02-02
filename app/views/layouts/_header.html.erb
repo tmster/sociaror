@@ -2,10 +2,9 @@
     <div class="header" style="height: 40px;">
          <ul class="nav nav-pills pull-right">
           <% if signed_in? %>
-            <li><%= link_to "Users", '#' %></li>
-            <li><%= link_to "Profile", current_user %></li>
-            <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-            <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+            <li><%= link_to "Profil", current_user %></li>
+            <li><%= link_to "Ustawienia", edit_user_path(current_user) %></li>
+            <li><%= link_to "Wyloguj", signout_path, method: "delete" %></li>
           <% else %>
             <li><%= link_to "Logowanie", signin_path %></li>
             <li><%= link_to "Rejestracja", signup_path %></li>

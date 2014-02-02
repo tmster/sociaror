@@ -235,3 +235,5 @@ pl:
         email: Email
         password: Hasło
         password_confirmation: Potwierdzenie hasła
+        firs_namet: Imię
+        last_name: Nazwisko

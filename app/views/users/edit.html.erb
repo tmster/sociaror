@@ -1,5 +1,5 @@
 <% provide(:title, "Edytuj profil") %>
-<h1>Aktyalizuj swój profil</h1>
+<h1>Aktualizuj swój profil</h1>
 
 <div class="row">
   <div class="span6 offset3">
@@ -12,7 +12,8 @@
         <%= f.password_field :password, placeholder: "*****", help: "8 - 32 znaki, min. 1 cyfra, min. 1 znak specjalny, min. 1 litera"  %>
 
         <%= f.password_field :password_confirmation, placeholder: "*****" %>
-
+<%= f.text_field :first_name, placeholder: "Imię" %>
+<%= f.text_field :last_name, placeholder: "Nazwisko" %>
         <%= f.submit "Zapisz", class: "btn btn-large btn-primary" %>
 
     <% end %>

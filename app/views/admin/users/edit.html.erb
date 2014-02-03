@@ -1,0 +1,56 @@
+<% provide(:title, "Edytuj profil") %>
+<h1>Aktualizuj swój profil</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= bootstrap_form_for(@user, style: :horizontal, left: "col-sm-4", right: "col-sm-8") do |f| %>
+
+        <%= f.text_field :name, placeholder: "Nazwa", help: "4-16 znaków" %>
+
+        <%= f.text_field :email, placeholder: "login@example.com", help: "6 - max. 32 znaki, forma zgodna ze standardem adresów email"  %>
+
+        <%= f.password_field :password, placeholder: "*****", help: "8 - 32 znaki, min. 1 cyfra, min. 1 znak specjalny, min. 1 litera"  %>
+
+        <%= f.password_field :password_confirmation, placeholder: "*****" %>
+        
+        <%= f.text_field :first_name, placeholder: "Imię" %>
+        
+        <%= f.text_field :last_name, placeholder: "Nazwisko" %>
+
+        <%= f.form_group :email_visibility, label: { text: "Widoczność adresu email" } do %>
+          <% if @user.email_visibility==0 %>
+            <%= f.radio_button :email_visibility, 0, label: "Adres Publiczny", inline: true , checked: true %>
+          <% else %>
+            <%= f.radio_button :email_visibility, 0, label: "Adres Publiczny", inline: true  %>
+          <% end %>
+
+          <% if @user.email_visibility==1 %>
+            <%= f.radio_button :email_visibility, 1, label: "Adres Prywatny",inline: true  , checked: true %>
+          <% else %>
+            <%= f.radio_button :email_visibility, 1, label: "Adres Prywatny",inline: true   %>
+          <% end %>
+        <% end %>
+
+        <%= f.form_group :gender, label: { text: "Pleć" } do %>
+          <% if @user.gender=="m" %>
+            <%= f.radio_button :gender, "m", label: "Mężczyzna", inline: true , checked: true %>
+          <% else %>
+            <%= f.radio_button :gender, "m", label: "Mężczyzna", inline: true  %>
+          <% end %>
+
+          <% if @user.gender=="k" %>
+            <%= f.radio_button :gender, "k", label: "Kobieta",inline: true  , checked: true %>
+          <% else %>
+            <%= f.radio_button :gender, "k", label: "Kobieta",inline: true   %>
+          <% end %>
+        <% end %>
+
+          <%= f.form_group do %>
+        <%= f.submit "Zapisz", class: "btn btn-large btn-primary" %>
+        <% end %>
+    <% end %>
+
+    <%= gravatar_for @user %>
+    <a href="http://gravatar.com/emails">change</a>
+  </div>
+</div>

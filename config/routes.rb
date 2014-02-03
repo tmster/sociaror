@@ -1,8 +1,11 @@
 Sociaror::Application.routes.draw do
+  resources :news
+
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
 namespace :admin do
-  resources :admin
+  resources :admin, :users
   root :to => "admin#index"
 end
 

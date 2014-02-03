@@ -17,12 +17,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Sociaror - Panel Administratora</a>
+          <%= link_to "Sociaror - Panel Administratora", admin_root_path, :class=>"navbar-brand"  %>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Strona Głowna</a></li>
-            <li><a href="#about">Użytkownicy</a></li>
+            <li><%= link_to "Użytkownicy", admin_users_path %></li>
             <li><a href="#contact">Treść</a></li>
           </ul>
         </div><!-- /.nav-collapse -->
@@ -34,7 +34,11 @@
           <% flash.each do |key, value| %>
       <div class="<%= twitterized_type(key)  %>"><%= value %></div>
     <% end %>
+    <div class="row row-offcanvas row-offcanvas-right">
+      <div class="col-xs-12 col-sm-9">
     <%= yield %>
+      </div>
+
 
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
           <div class="list-group">

@@ -1,0 +1,50 @@
+<% provide(:title, 'Wszystkie Newsy') %>
+<% content_for :menu do %>
+<%= render 'menu' %>
+<% end %>
+<h1>Wszystkie Newsy</h1>
+
+<%= will_paginate %>
+              <table class="table table-striped custab">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Autor</th>
+                            <th>Tytul</th>
+                            <th>Status</th>
+                            <th>Utworzony</th>
+                            <th class="text-center">Akcje</th>
+                        </tr>
+                    </thead>
+                      <% @news.each do |news| %>
+               <tr>
+                <td><%= news.id %></td>
+                <td><%= news.user.name %></td>
+                <td><%= news.title %></td>
+                <td><% if news.status==1   %>
+                    Opublikowany
+                    <% else %>
+                    Nieopublikowany
+                    <% end %>
+                </td>
+                <td><%= news.created_at %></td>
+                <td class="text-center">
+                <%= link_to '<span class="glyphicon glyphicon-eye-open"></span>'.html_safe, admin_news_path(news), 
+     
+                :class=>"btn btn-info btn-xs"  %>
+                <%= link_to '<span class="glyphicon glyphicon-edit"></span>'.html_safe, edit_admin_news_path(news), 
+                
+                :class=>"btn btn-info btn-xs"  %>
+                <%= link_to '<span class="glyphicon glyphicon-remove"></span>'.html_safe, admin_news_path(news), 
+                method: :delete,
+                :class=>"btn btn-danger btn-xs" ,
+                data: { confirm: "You sure?" } %>
+                  </td>
+               </tr>
+            <% end %>
+
+
+        </table>
+
+
+<%= will_paginate %>

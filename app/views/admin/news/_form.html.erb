@@ -1,0 +1,28 @@
+
+
+  <div class="field">
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.text_area :summary, {'data-provide' => "markdown"} %>
+  </div>
+  <div class="field">
+    <%= f.text_area :content, {'data-provide' => "markdown"} %>
+  </div>
+
+  <%= f.form_group :status, label: { text: "Status" } do %>
+    <% if @news.status==0 or @news.status.nil? %>
+      <%= f.radio_button :status, 0, label: "Nieopublikowany", inline: true , checked: true %>
+    <% else %>
+      <%= f.radio_button :status, 0, label: "Nieopublikowany", inline: true  %>
+    <% end %>
+
+    <% if @news.status==1 %>
+      <%= f.radio_button :status, 1, label: "Opublikowany",inline: true  , checked: true %>
+    <% else %>
+      <%= f.radio_button :status, 1, label: "Opublikowany",inline: true   %>
+    <% end %>
+  <% end %>
+  <%= f.form_group do %>
+    <%= f.submit "Zapisz", class: "btn btn-large btn-primary" %>
+  <% end %>

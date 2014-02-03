@@ -1,0 +1,10 @@
+<% provide(:title, 'Dodaj News') %>
+<% content_for :menu do %>
+<%= render 'menu' %>
+<% end %>
+<h1>Dodaj News</h1>
+<%= bootstrap_form_for(@news,:url => admin_news_index_url, style: :horizontal, left: "col-sm-4", right: "col-sm-8") do |f| %>
+<%= render 'form',:f => f  %>
+<% end %>
+
+<%= link_to 'Back', news_index_path %>

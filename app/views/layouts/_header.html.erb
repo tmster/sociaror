@@ -5,6 +5,9 @@
             <li><%= link_to "Profil", current_user %></li>
             <li><%= link_to "Ustawienia", edit_user_path(current_user) %></li>
             <li><%= link_to "Wyloguj", signout_path, method: "delete" %></li>
+            <% if admin? %>
+            <li><%= link_to "Administracja", admin_root_path %></li>
+            <% end %>
           <% else %>
             <li><%= link_to "Logowanie", signin_path %></li>
             <li><%= link_to "Rejestracja", signup_path %></li>
@@ -16,7 +19,7 @@
 </div>
 <ul class="nav nav-justified">
     <li class="active"><%= link_to "Strona Główna", root_path %></li>
-    <li><%= link_to "Newsy", "#" %></li>
+    <li><%= link_to "Newsy", news_index_path %></li>
     <li><%= link_to "Projekty", "#" %></li>
     <li><%= link_to "Wykop", "#" %></li>
     <li><%= link_to "Pytania i Odpowiedzi", "#" %></li>

@@ -1,12 +1,12 @@
-<% provide(:title, 'Rejestracja') %>
+<% provide(:title, 'Dodaj uzytkownika') %>
 <% content_for :menu do %>
 <%= render 'menu' %>
 <% end %>
-<h1>Rejestracja</h1>
+<h1>Dodaj użytkownika</h1>
 
 <div class="row">
   <div class="span6 offset3">
-    <%= bootstrap_form_for(@user, style: :horizontal, left: "col-sm-4", right: "col-sm-8") do |f| %>
+    <%= bootstrap_form_for(@user,:url => new_admin_user_path, style: :horizontal, left: "col-sm-4", right: "col-sm-8") do |f| %>
 
         <%= f.text_field :name, placeholder: "Nazwa", help: "4-16 znaków" %>
 

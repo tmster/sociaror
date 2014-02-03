@@ -1,9 +1,10 @@
 class Admin::UsersController < AdminController
   before_filter :admin_user
+
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "User destroyed."
-    redirect_to users_url
+    flash[:success] = "Uytkownik zostal usuniety."
+    redirect_to admin_users_url
   end
 
   def index
@@ -20,9 +21,8 @@ class Admin::UsersController < AdminController
   def create
     @user = User.new(params[:user])
     if @user.save
-      sign_in @user
-      flash[:success] = "Welcome to the Sample App!"
-      redirect_to @user
+      flash[:success] = 'Uzytkownik zostal dodany!'
+      redirect_to admin_users_url
     else
       render 'new'
     end
@@ -35,9 +35,8 @@ class Admin::UsersController < AdminController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      flash[:success] = "Profile updated"
-      sign_in @user
-      redirect_to @user
+      flash[:success] = "Profil zostal zaktualizowany"
+      redirect_to admin_users_url
     else
       render 'edit'
     end

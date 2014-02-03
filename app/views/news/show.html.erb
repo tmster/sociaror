@@ -1,0 +1,26 @@
+<p>
+  <b>Author:</b>
+  <%= @news.user.name%>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @news.title %>
+</p>
+
+<p>
+  <b>Summary:</b>
+  <%= markdown @news.summary %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= markdown @news.content %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @news.status %>
+</p>
+
+

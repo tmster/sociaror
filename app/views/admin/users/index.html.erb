@@ -1,4 +1,7 @@
 <% provide(:title, 'All users') %>
+<% content_for :menu do %>
+<%= render 'menu' %>
+<% end %>
 <h1>Użytkownicy</h1>
 
 <%= will_paginate %>

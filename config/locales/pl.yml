@@ -1,4 +1,5 @@
 pl:
+
   date:
     abbr_day_names:
     - nie
@@ -239,3 +240,9 @@ pl:
         last_name: Nazwisko
         email_visibility: Widoczność Adresu email
         gender: Płeć
+      comment:
+        comment: Komentarz
+      news:
+        title: Tytuł
+        summary: Skrót newsa
+        content: Właściwa Treść

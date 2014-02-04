@@ -1,5 +1,16 @@
-<h1>New news</h1>
+<% provide(:title, 'Dodaj News') %>
+<div class="row row-offcanvas row-offcanvas-right">
+      <div class="col-xs-12 col-sm-9">
+      
+<h1>Dodaj News</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', news_index_path %>
+
+</div><!--/row-->
+
+
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+          <%= render "menu" %>
+        </div><!--/span-->
+      </div>

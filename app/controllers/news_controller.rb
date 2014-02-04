@@ -3,13 +3,13 @@ class NewsController < ApplicationController
 
   def index
     @news = News.where(:status => 1).paginate(page: params[:page], :per_page => 5).order('id DESC')
-
   end
 
 
   def show
     @news = News.find(params[:id])
-
+@comments = @news.comments.build
+@news.comments.pop
   end
 
 

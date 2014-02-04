@@ -1,37 +1,15 @@
-<%= form_for(@news) do |f| %>
-  <% if @news.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@news.errors.count, "error") %> prohibited this news from being saved:</h2>
-
-      <ul>
-      <% @news.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= bootstrap_form_for(@news,style: :horizontal, left: "col-sm-4", right: "col-sm-8") do |f| %>
 
   <div class="field">
-    <%= f.label :author %><br />
-    <%= f.number_field :author %>
-  </div>
-  <div class="field">
-    <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :summary %><br />
-    <%= f.text_area :summary %>
+    <%= f.text_area :summary, {'data-provide' => "markdown"} %>
   </div>
   <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
+    <%= f.text_area :content, {'data-provide' => "markdown"} %>
   </div>
-  <div class="field">
-    <%= f.label :status %><br />
-    <%= f.number_field :status %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.form_group do %>
+    <%= f.submit "Zapisz", class: "btn btn-large btn-primary" %>
+  <% end %>
 <% end %>

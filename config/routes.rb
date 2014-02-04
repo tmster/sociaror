@@ -18,6 +18,13 @@ namespace :admin do
       get  :unpublish
     end
   end
+
+  resources :wykops do 
+    member do 
+      get  :publish
+      get  :unpublish
+    end
+  end
   root :to => "admin#index"
 end
 

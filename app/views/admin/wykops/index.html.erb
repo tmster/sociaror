@@ -1,0 +1,50 @@
+<% provide(:title, 'Wszystkie Wykopy') %>
+<% content_for :menu do %>
+<%= render 'menu' %>
+<% end %>
+<h1>Wszystkie Wykopy</h1>
+
+<%= will_paginate %>
+              <table class="table table-striped custab">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Autor</th>
+                            <th>Tytul</th>
+                            <th>Status</th>
+                            <th>Utworzony</th>
+                            <th class="text-center">Akcje</th>
+                        </tr>
+                    </thead>
+                      <% @wykops.each do |wykop| %>
+               <tr>
+                <td><%= wykop.id %></td>
+                <td><%= wykop.user.name %></td>
+                <td><%= wykop.title %></td>
+                <td><% if wykop.status==1   %>
+                    Opublikowany
+                    <% else %>
+                    Nieopublikowany
+                    <% end %>
+                </td>
+                <td><%= wykop.created_at %></td>
+                <td class="text-center">
+                <%= link_to '<span class="glyphicon glyphicon-eye-open"></span>'.html_safe, admin_wykop_path(wykop), 
+     
+                :class=>"btn btn-info btn-xs"  %>
+                <%= link_to '<span class="glyphicon glyphicon-edit"></span>'.html_safe, edit_admin_wykop_path(wykop), 
+                
+                :class=>"btn btn-info btn-xs"  %>
+                <%= link_to '<span class="glyphicon glyphicon-remove"></span>'.html_safe, admin_wykop_path(wykop), 
+                method: :delete,
+                :class=>"btn btn-danger btn-xs" ,
+                data: { confirm: "You sure?" } %>
+                  </td>
+               </tr>
+            <% end %>
+
+
+        </table>
+
+
+<%= will_paginate %>

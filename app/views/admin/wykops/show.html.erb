@@ -1,0 +1,35 @@
+  <% if @wykop.status==1   %>
+                  <%= link_to 'Zdejmij',unpublish_admin_wykop_url(@wykop),:class =>'btn btn-danger btn-lg' %>
+                    <% else %>
+                    <%= link_to 'Publikuj',publish_admin_wykop_url(@wykop),:class =>'btn btn-danger btn-lg' %>
+                    <% end %>
+<p>
+  <b>Autor:</b>
+  <%= @wykop.user.name%>
+</p>
+
+<p>
+  <b>Tytuł:</b>
+  <%= @wykop.title %>
+</p>
+
+<p>
+  <b>Podsumowanie:</b>
+  <%= markdown @wykop.summary %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= markdown @wykop.content %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <% if @wykop.status==1   %>
+                    Opublikowany
+                    <% else %>
+                    Nieopublikowany
+                    <% end %>
+</p>
+
+

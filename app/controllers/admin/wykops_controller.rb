@@ -27,7 +27,7 @@ class Admin::WykopsController < AdminController
     @wykop.status=1
     @wykop.save
     flash[:success] = "Wykop zostal zatwierdzony"
-    redirect_to admin_wykop_index_url 
+    redirect_to admin_wykops_url 
   end  
 
   def unpublish
@@ -35,7 +35,7 @@ class Admin::WykopsController < AdminController
     @wykop.status=0
     @wykop.save
     flash[:success] = "Wykop zostal zdjety"
-    redirect_to admin_wykop_index_url 
+    redirect_to admin_wykops_url 
   end
 
   def create
@@ -45,7 +45,7 @@ class Admin::WykopsController < AdminController
       if @wykop.save
         flash[:success] = "Wykop zostal dodany"
 
-        redirect_to admin_wykop_index_url 
+        redirect_to admin_wykops_url 
       else
         render action: "new" 
       end
@@ -59,7 +59,7 @@ class Admin::WykopsController < AdminController
       if @wykop.update_attributes(params[:wykop])
         flash[:success] = "Wykop zostal zaktualizowany"
 
-        redirect_to admin_wykop_index_url 
+        redirect_to admin_wykops_url 
       else
         render action: "edit"
       end
@@ -72,7 +72,7 @@ class Admin::WykopsController < AdminController
     @wykop.destroy
     flash[:success] = "Wykop zostal usuniety"
 
-    redirect_to admin_wykop_index_url 
+    redirect_to admin_wykops_url 
   end
   
 end

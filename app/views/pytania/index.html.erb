@@ -3,7 +3,8 @@
 <table>
   <tr>
     <th>User</th>
-    <th>Parent pytania idtitle</th>
+    <th>Parent pytania</th>
+    <th>Title</th>
     <th>Content</th>
     <th>Status</th>
     <th></th>
@@ -14,7 +15,8 @@
 <% @pytania.each do |pytanium| %>
   <tr>
     <td><%= pytanium.user_id %></td>
-    <td><%= pytanium.parent_pytania_idtitle %></td>
+    <td><%= pytanium.parent_pytania_id %></td>
+    <td><%= pytanium.title %></td>
     <td><%= pytanium.content %></td>
     <td><%= pytanium.status %></td>
     <td><%= link_to 'Show', pytanium %></td>

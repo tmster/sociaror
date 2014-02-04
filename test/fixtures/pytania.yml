@@ -2,12 +2,14 @@
 
 one:
   user_id: 1
-  parent_pytania_idtitle: MyString
+  parent_pytania_id: 1
+  title: MyString
   content: MyText
   status: 1
 
 two:
   user_id: 1
-  parent_pytania_idtitle: MyString
+  parent_pytania_id: 1
+  title: MyString
   content: MyText
   status: 1

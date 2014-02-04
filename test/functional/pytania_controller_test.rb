@@ -18,7 +18,7 @@ class PytaniaControllerTest < ActionController::TestCase
 
   test "should create pytanium" do
     assert_difference('Pytanium.count') do
-      post :create, pytanium: { content: @pytanium.content, parent_pytania_idtitle: @pytanium.parent_pytania_idtitle, status: @pytanium.status, user_id: @pytanium.user_id }
+      post :create, pytanium: { content: @pytanium.content, parent_pytania_id: @pytanium.parent_pytania_id, status: @pytanium.status, title: @pytanium.title, user_id: @pytanium.user_id }
     end
 
     assert_redirected_to pytanium_path(assigns(:pytanium))
@@ -35,7 +35,7 @@ class PytaniaControllerTest < ActionController::TestCase
   end
 
   test "should update pytanium" do
-    put :update, id: @pytanium, pytanium: { content: @pytanium.content, parent_pytania_idtitle: @pytanium.parent_pytania_idtitle, status: @pytanium.status, user_id: @pytanium.user_id }
+    put :update, id: @pytanium, pytanium: { content: @pytanium.content, parent_pytania_id: @pytanium.parent_pytania_id, status: @pytanium.status, title: @pytanium.title, user_id: @pytanium.user_id }
     assert_redirected_to pytanium_path(assigns(:pytanium))
   end
 

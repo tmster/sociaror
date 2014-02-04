@@ -1,26 +1,35 @@
+  <% if @news.status==1   %>
+                  <%= link_to 'Zdejmij',unpublish_admin_news_url(@news),:class =>'btn btn-danger btn-lg' %>
+                    <% else %>
+                    <%= link_to 'Publikuj',publish_admin_news_url(@news),:class =>'btn btn-danger btn-lg' %>
+                    <% end %>
 <p>
-  <b>Author:</b>
+  <b>Autor:</b>
   <%= @news.user.name%>
 </p>
 
 <p>
-  <b>Title:</b>
+  <b>Tytuł:</b>
   <%= @news.title %>
 </p>
 
 <p>
-  <b>Summary:</b>
+  <b>Podsumowanie:</b>
   <%= markdown @news.summary %>
 </p>
 
 <p>
-  <b>Content:</b>
+  <b>Treść:</b>
   <%= markdown @news.content %>
 </p>
 
 <p>
   <b>Status:</b>
-  <%= @news.status %>
+  <% if @news.status==1   %>
+                    Opublikowany
+                    <% else %>
+                    Nieopublikowany
+                    <% end %>
 </p>
 
 

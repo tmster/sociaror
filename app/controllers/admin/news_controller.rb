@@ -22,6 +22,21 @@ class Admin::NewsController < AdminController
     @news = News.find(params[:id])
   end
 
+  def publish
+    @news = News.find(params[:id])
+    @news.status=1
+    @news.save
+    flash[:success] = "News zostal zatwierdzony"
+    redirect_to admin_news_index_url 
+  end  
+
+  def unpublish
+    @news = News.find(params[:id])
+    @news.status=0
+    @news.save
+    flash[:success] = "News zostal zdjety"
+    redirect_to admin_news_index_url 
+  end
 
   def create
     @news = News.new(params[:news])

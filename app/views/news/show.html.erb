@@ -25,7 +25,7 @@
     </li>
   <% end %>
 </ul>
-    
+<% if signed_in? %>    
 <hr />
 
 <%= bootstrap_form_for(@comments, style: :horizontal, left: "col-sm-4", right: "col-sm-8") do |f| %>
@@ -48,3 +48,5 @@
           <%= render "menu" %>
         </div><!--/span-->
       </div>
+
+        <% end %>

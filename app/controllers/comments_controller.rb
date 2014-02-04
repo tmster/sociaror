@@ -5,13 +5,13 @@ class CommentsController < ApplicationController
       @comment = @commentable.comments.build(params[:comment])
       @comment.user_id = current_user.id
       if @comment.save
-        redirect_to show_page_url, :notice => "Thanks for the comment."
+        redirect_to show_page_url, :notice => "Komentarz zostal dodany."
       else
-        flash.now[:alert] = "You had some errors for your comment."  # edited 10/28/10 use 'flash.now' instead of 'flash'
+        flash.now[:alert] = "Podczas dodawania komentarza wystapily bledy."  # edited 10/28/10 use 'flash.now' instead of 'flash'
         render_error_page
       end
     else
-      redirect_to root_url, :alert => "You can't do that."
+      redirect_to root_url, :alert => "Oops!"
     end
   end
   

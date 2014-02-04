@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @wykop.user_id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @wykop.title %>
+</p>
+
+<p>
+  <b>Summary:</b>
+  <%= @wykop.summary %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @wykop.url %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @wykop.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_wykop_path(@wykop) %> |
+<%= link_to 'Back', wykops_path %>

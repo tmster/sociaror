@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140204092139) do
+ActiveRecord::Schema.define(:version => 20140204154121) do
 
   create_table "comments", :force => true do |t|
     t.string   "title",            :limit => 50, :default => ""
@@ -63,5 +63,15 @@ ActiveRecord::Schema.define(:version => 20140204092139) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
+
+  create_table "wykops", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "summary"
+    t.string   "url"
+    t.integer  "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end

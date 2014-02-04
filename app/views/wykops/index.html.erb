@@ -1,0 +1,31 @@
+<h1>Listing wykops</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Title</th>
+    <th>Summary</th>
+    <th>Url</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @wykops.each do |wykop| %>
+  <tr>
+    <td><%= wykop.user_id %></td>
+    <td><%= wykop.title %></td>
+    <td><%= wykop.summary %></td>
+    <td><%= wykop.url %></td>
+    <td><%= wykop.status %></td>
+    <td><%= link_to 'Show', wykop %></td>
+    <td><%= link_to 'Edit', edit_wykop_path(wykop) %></td>
+    <td><%= link_to 'Destroy', wykop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Wykop', new_wykop_path %>

@@ -1,0 +1,2 @@
+module WykopsHelper
+end

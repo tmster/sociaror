@@ -1,6 +1,9 @@
 Sociaror::Application.routes.draw do
 
 
+  resources :wykops
+
+
   resources :comments, :only => [:create]
   resources :news 
 

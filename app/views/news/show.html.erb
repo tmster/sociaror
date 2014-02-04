@@ -5,7 +5,7 @@
  <div class="page-header">
           <h3><%= link_to @news.title, news_url(@news) %></h3>
         </div>
-        <p>Napisane przez <%= link_to @news.user.name, user_url(@news.user) %>, dnia <%= time_tag Time.now  ,datetime: @news.created_at %></p>
+        <p>Napisane przez <%= link_to @news.user.name, user_url(@news.user) %>, dnia <%= time_tag @news.created_at ,datetime: @news.created_at %></p>
         <div class="lead"><%= markdown @news.summary %></div>
         <%= markdown @news.content %>
 

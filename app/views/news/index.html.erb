@@ -12,7 +12,7 @@
           <h3><%= link_to news.title, news_url(news) %></h3>
         </div>
         <div class="lead"><%= markdown news.summary %></div>
-        <p>Napisane przez <%= link_to news.user.name, user_url(news.user) %>, dnia <%= time_tag Time.now  ,datetime: news.created_at %>, napisano <%= link_to "#{news.comments.count} komentarzy", news_url(news) %></p>
+        <p>Napisane przez <%= link_to news.user.name, user_url(news.user) %>, dnia <%= time_tag news.created_at  ,datetime: news.created_at %>, napisano <%= link_to "#{news.comments.count} komentarzy", news_url(news) %></p>
 <% end %>
 
 <%= will_paginate %>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="3045996435">
+    <data-source source="LOCAL" name="Rails sociaror: development" uuid="7c30f523-018c-4bda-b5c5-2abd2c013856">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/development.sqlite3</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails sociaror: test" uuid="897a47e1-28df-467a-9224-73555c383789">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/test.sqlite3</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails sociaror: production" uuid="9b472e02-7b91-45ed-9bd5-091c460e7dbc">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://ec2-54-235-246-73.compute-1.amazonaws.com/d5b9bi7m585mpt</jdbc-url>
+      <user-name>wkegismdvwhrus</user-name>
+      <user-password>dfdddfcfdfc9dffbdfe7df98dfdadfc7dfe9dfc4dfd8dfdddfecdfd3dfebdfc0dfc1df98dfe7dfcddff5dfc7df9fdffbdfd2df9a</user-password>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+

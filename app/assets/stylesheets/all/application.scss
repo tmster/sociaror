@@ -12,7 +12,8 @@
  *= require_tree .
  */
 
-@import "twitter/bootstrap";
+@import "bootstrap";
+
 html {
   overflow-y: scroll;
 }
@@ -146,6 +147,16 @@ input {
 
 }
 
+.nav.nav-justified{
+    margin-bottom:20px;
+  
+}
+.title {
+  font-size: 21px;
+  font-weight: 200;
+  line-height: 1.4;
+  text-decoration: underline
+}
 .form-signin {
   margin: 0 auto;
   max-width: 330px;

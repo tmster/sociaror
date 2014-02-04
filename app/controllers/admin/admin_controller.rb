@@ -3,5 +3,7 @@ class Admin::AdminController < AdminController
   before_filter :admin_user
   def index
   	@users = User.last(3)
+  	@news = News.last(3)
+
   end
 end

@@ -1,6 +1,9 @@
 Sociaror::Application.routes.draw do
 
 
+  resources :pytania
+
+
   resources :wykops
 
 

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @pytanium.user_id %>
+</p>
+
+<p>
+  <b>Parent pytania idtitle:</b>
+  <%= @pytanium.parent_pytania_idtitle %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @pytanium.content %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @pytanium.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_pytanium_path(@pytanium) %> |
+<%= link_to 'Back', pytania_path %>

@@ -1,5 +1,16 @@
-<h1>New wykop</h1>
+<% provide(:title, 'Dodaj Wykop') %>
+<div class="row row-offcanvas row-offcanvas-right">
+      <div class="col-xs-12 col-sm-9">
+      
+<h1>Dodaj Wykop</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', wykops_path %>
+
+</div><!--/row-->
+
+
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+          <%= render "menu" %>
+        </div><!--/span-->
+      </div>

@@ -1,37 +1,15 @@
-<%= form_for(@wykop) do |f| %>
-  <% if @wykop.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@wykop.errors.count, "error") %> prohibited this wykop from being saved:</h2>
-
-      <ul>
-      <% @wykop.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= bootstrap_form_for(@wykop,style: :horizontal, left: "col-sm-4", right: "col-sm-8") do |f| %>
 
   <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :summary %><br />
-    <%= f.text_area :summary %>
+    <%= f.text_area :summary, {'data-provide' => "markdown"} %>
   </div>
   <div class="field">
-    <%= f.label :url %><br />
     <%= f.text_field :url %>
   </div>
-  <div class="field">
-    <%= f.label :status %><br />
-    <%= f.number_field :status %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.form_group do %>
+    <%= f.submit "Zapisz", class: "btn btn-large btn-primary" %>
+  <% end %>
 <% end %>

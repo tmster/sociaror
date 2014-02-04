@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :first_name, :last_name, :gender, :email_visibility
   has_secure_password
   has_many :news
+  has_many :wykops
 
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token

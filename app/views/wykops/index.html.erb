@@ -1,31 +1,28 @@
-<h1>Listing wykops</h1>
+<% provide(:title, 'Wykop') %>
+<div class="row row-offcanvas row-offcanvas-right">
+      <div class="col-xs-12 col-sm-9">
+      
 
-<table>
-  <tr>
-    <th>User</th>
-    <th>Title</th>
-    <th>Summary</th>
-    <th>Url</th>
-    <th>Status</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<%= will_paginate %>
+
+
 
 <% @wykops.each do |wykop| %>
-  <tr>
-    <td><%= wykop.user_id %></td>
-    <td><%= wykop.title %></td>
-    <td><%= wykop.summary %></td>
-    <td><%= wykop.url %></td>
-    <td><%= wykop.status %></td>
-    <td><%= link_to 'Show', wykop %></td>
-    <td><%= link_to 'Edit', edit_wykop_path(wykop) %></td>
-    <td><%= link_to 'Destroy', wykop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+ <div class="page-header">
+          <h3><%= link_to wykop.title, wykop_url(wykop) %></h3>
+        </div>
+        <p>Dodane przez <%= link_to wykop.user.name, user_url(wykop.user) %>, dnia <%= time_tag wykop.created_at  ,datetime: wykop.created_at %>, napisano <%= link_to "#{wykop.comments.count} komentarzy", wykop_url(wykop) %>, url: <%= link_to wykop.url, wykop.url %></p>
+        <div class="lead"><%= markdown wykop.summary %></div>
 <% end %>
-</table>
 
-<br />
+<%= will_paginate %>
 
-<%= link_to 'New Wykop', new_wykop_path %>
+</div><!--/row-->
+
+
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+          <%= render "menu" %>
+        </div><!--/span-->
+      </div>
+
+

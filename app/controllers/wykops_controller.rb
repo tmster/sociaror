@@ -1,83 +1,40 @@
 class WykopsController < ApplicationController
-  # GET /wykops
-  # GET /wykops.json
-  def index
-    @wykops = Wykop.all
+  before_filter :signed_in_user, only: [:new, :create]
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @wykops }
-    end
+  def index
+    @wykops = Wykop.where(:status => 1).paginate(page: params[:page], :per_page => 5).order('id DESC')
   end
 
-  # GET /wykops/1
-  # GET /wykops/1.json
+
   def show
     @wykop = Wykop.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @wykop }
-    end
+@comments = @wykop.comments.build
+@wykop.comments.pop
   end
 
-  # GET /wykops/new
-  # GET /wykops/new.json
+
   def new
     @wykop = Wykop.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @wykop }
-    end
   end
 
-  # GET /wykops/1/edit
+
   def edit
     @wykop = Wykop.find(params[:id])
   end
 
-  # POST /wykops
-  # POST /wykops.json
+
   def create
     @wykop = Wykop.new(params[:wykop])
+    @wykop.user_id = current_user.id
 
-    respond_to do |format|
       if @wykop.save
-        format.html { redirect_to @wykop, notice: 'Wykop was successfully created.' }
-        format.json { render json: @wykop, status: :created, location: @wykop }
+        flash[:success] = "Wykop zostal dodany"
+
+        redirect_to wykops_url 
       else
-        format.html { render action: "new" }
-        format.json { render json: @wykop.errors, status: :unprocessable_entity }
+        render action: "new" 
       end
-    end
-  end
-
-  # PUT /wykops/1
-  # PUT /wykops/1.json
-  def update
-    @wykop = Wykop.find(params[:id])
-
-    respond_to do |format|
-      if @wykop.update_attributes(params[:wykop])
-        format.html { redirect_to @wykop, notice: 'Wykop was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @wykop.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /wykops/1
-  # DELETE /wykops/1.json
-  def destroy
-    @wykop = Wykop.find(params[:id])
-    @wykop.destroy
-
-    respond_to do |format|
-      format.html { redirect_to wykops_url }
-      format.json { head :no_content }
-    end
+    
   end
 end

@@ -8,7 +8,7 @@ class PytaniaController < ApplicationController
 
   def show
     @pytania = Pytanium.find(params[:id])
-
+    
   end
 
 

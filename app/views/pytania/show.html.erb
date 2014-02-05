@@ -26,7 +26,8 @@
 </ul>
 <% if signed_in? %>    
 <hr />
-<%= bootstrap_form_for(@pytania,:url => pytanium_path,style: :horizontal, left: "col-sm-4", right: "col-sm-8") do |f| %>
+<% @odpowiedz=@pytania %><% @odpowiedz.content='' %>
+<%= bootstrap_form_for(@odpowiedz,:url => pytanium_path,style: :horizontal, left: "col-sm-4", right: "col-sm-8") do |f| %>
 
   <div class="field">
     <%= f.text_area :content, {'data-provide' => "markdown"} %>

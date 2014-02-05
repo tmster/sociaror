@@ -1,31 +1,27 @@
-<h1>Listing pytania</h1>
+<% provide(:title, 'Pytania') %>
+<div class="row row-offcanvas row-offcanvas-right">
+      <div class="col-xs-12 col-sm-9">
+      
 
-<table>
-  <tr>
-    <th>User</th>
-    <th>Parent pytania</th>
-    <th>Title</th>
-    <th>Content</th>
-    <th>Status</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<%= will_paginate %>
 
-<% @pytania.each do |pytanium| %>
-  <tr>
-    <td><%= pytanium.user_id %></td>
-    <td><%= pytanium.parent_pytania_id %></td>
-    <td><%= pytanium.title %></td>
-    <td><%= pytanium.content %></td>
-    <td><%= pytanium.status %></td>
-    <td><%= link_to 'Show', pytanium %></td>
-    <td><%= link_to 'Edit', edit_pytanium_path(pytanium) %></td>
-    <td><%= link_to 'Destroy', pytanium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+
+
+<% @pytania.each do |pytanie| %>
+
+          <div class="title"><%= link_to pytanie.title, pytanium_url(pytanie) %></div>
+
+        <p>Dodane przez <%= link_to pytanie.user.name, user_url(pytanie.user) %>, dnia <%= time_tag pytanie.created_at  ,datetime: pytanie.created_at %>, odpowiedzi 0</p>
 <% end %>
-</table>
 
-<br />
+<%= will_paginate %>
 
-<%= link_to 'New Pytanium', new_pytanium_path %>
+</div><!--/row-->
+
+
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+          <%= render "menu" %>
+        </div><!--/span-->
+      </div>
+
+

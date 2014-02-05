@@ -1,30 +1,45 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, @pytania.title ) %>
+<div class="row row-offcanvas row-offcanvas-right">
+      <div class="col-xs-12 col-sm-9">
+      
+ <div class="page-header">
+          <h3><%= @pytania.title %></h3>
+        </div><%= gravatar_for @pytania.user %>
+        <span>Napisane <%= time_ago_in_words @pytania.created_at %> temu, przez </span>
+      <%= link_to @pytania.user.name, @pytania.user %>
 
-<p>
-  <b>User:</b>
-  <%= @pytanium.user_id %>
-</p>
-
-<p>
-  <b>Parent pytania:</b>
-  <%= @pytanium.parent_pytania_id %>
-</p>
-
-<p>
-  <b>Title:</b>
-  <%= @pytanium.title %>
-</p>
-
-<p>
-  <b>Content:</b>
-  <%= @pytanium.content %>
-</p>
-
-<p>
-  <b>Status:</b>
-  <%= @pytanium.status %>
-</p>
+        <%= markdown @pytania.content %>
 
 
-<%= link_to 'Edit', edit_pytanium_path(@pytanium) %> |
-<%= link_to 'Back', pytania_path %>
+<hr />
+<ul class="replies">
+
+  <% @pytania.replies.each do |reply| %>
+    <li>
+
+
+      <%= gravatar_for reply.user %><span>Napisane <%= time_ago_in_words reply.created_at %> temu, przez </span>
+      <%= link_to reply.user.name, reply.user %>
+      <p><%= markdown reply.content %></p>
+    </li>
+  <% end %>
+</ul>
+<% if signed_in? %>    
+<hr />
+<%= bootstrap_form_for(@pytania,:url => pytanium_path,style: :horizontal, left: "col-sm-4", right: "col-sm-8") do |f| %>
+
+  <div class="field">
+    <%= f.text_area :content, {'data-provide' => "markdown"} %>
+  </div>
+  <%= f.form_group do %>
+    <%= f.submit "Zapisz", class: "btn btn-large btn-primary" %>
+  <% end %>
+<% end %>
+<% end %>
+    </div><!--/row-->
+
+
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+          <%= render "menu" %>
+        </div><!--/span-->
+      </div>

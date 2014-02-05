@@ -26,6 +26,7 @@ class PytaniaController < ApplicationController
   def create
     @pytania = Pytanium.new(params[:pytanium])
     @pytania.user_id = current_user.id
+    @pytania.parent_pytania_id=0
 
       if @pytania.save
         flash[:success] = "Pytanie zostalo dodane"

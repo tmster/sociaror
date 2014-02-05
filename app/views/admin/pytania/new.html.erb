@@ -1,0 +1,9 @@
+<% provide(:title, 'Dodaj Pytanie') %>
+<% content_for :menu do %>
+<%= render 'menu' %>
+<% end %>
+<h1>Dodaj Pytanie</h1>
+<%= bootstrap_form_for(@pytania,:url => admin_pytania_url, style: :horizontal, left: "col-sm-4", right: "col-sm-8") do |f| %>
+<%= render 'form',:f => f  %>
+<% end %>
+

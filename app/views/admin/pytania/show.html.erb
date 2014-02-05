@@ -1,0 +1,39 @@
+<% provide(:title, @pytania.title) %>
+<% content_for :menu do %>
+<%= render 'menu' %>
+<% end %>
+  <% if @pytania.status==1   %>
+                  <%= link_to 'Zdejmij',unpublish_admin_pytanium_url(@pytania),:class =>'btn btn-danger btn-lg' %>
+                    <% else %>
+                    <%= link_to 'Publikuj',publish_admin_pytanium_url(@pytania),:class =>'btn btn-danger btn-lg' %>
+                    <% end %>
+      
+ <div class="page-header">
+          <h3><%= @pytania.title %></h3>
+        </div><%= gravatar_for @pytania.user %>
+        <span>Napisane <%= time_ago_in_words @pytania.created_at %> temu, przez </span>
+      <%= link_to @pytania.user.name, @pytania.user %>
+
+        <%= markdown @pytania.content %>
+
+
+<hr />
+
+
+  <% @pytania.replies.each do |reply| %>
+    
+
+
+      <%= gravatar_for reply.user %><span>Napisane <%= time_ago_in_words reply.created_at %> temu, przez </span>
+      <%= link_to reply.user.name, reply.user %>
+                <%= link_to '<span class="glyphicon glyphicon-edit"></span>'.html_safe, edit_admin_pytanium_path(reply), 
+                
+                :class=>"btn btn-info btn-xs"  %>
+                <%= link_to '<span class="glyphicon glyphicon-remove"></span>'.html_safe, admin_pytanium_path(reply), 
+                method: :delete,
+                :class=>"btn btn-danger btn-xs" ,
+                data: { confirm: "Jesteś pewny?" } %>
+      <p><%= markdown reply.content %></p>
+
+  <% end %>
+

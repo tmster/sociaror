@@ -1,7 +1,12 @@
 Sociaror::Application.routes.draw do
 
 
-  resources :pytania
+  resources :pytania do
+     member do 
+      get  :like
+      get  :dislike
+    end
+  end
 
 
   resources :wykops do

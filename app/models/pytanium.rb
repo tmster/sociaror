@@ -5,4 +5,8 @@ class Pytanium < ActiveRecord::Base
 
   has_many :replies, :class_name => "Pytanium", :foreign_key => "parent_pytania_id"
   acts_as_votable
+
+  def score
+    	return self.likes.size - self.dislikes.size
+  end
 end

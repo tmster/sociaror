@@ -1,7 +1,44 @@
 <% provide(:title, @pytania.title ) %>
 <div class="row row-offcanvas row-offcanvas-right">
       <div class="col-xs-12 col-sm-9">
-      
+<div class="row">
+   <div class="col-md-1">
+
+    <div class="pytanie btn btn-default col-md-1">
+      <div class="row">
+        <% if current_user.voted_for? @pytania %>
+        <span class="glyphicon glyphicon-chevron-up voted"></span>
+         <% else %>
+         <%= link_to '<span class="glyphicon glyphicon-chevron-up"></span>'.html_safe, like_pytanium_path(@pytania) %>
+         <% end %>
+
+      </div>
+      <div class="row">
+        <%= @pytania.score %>
+      </div>
+      <div class="row">
+        <% if current_user.voted_for? @pytania %>
+        <span class="glyphicon glyphicon-chevron-down voted"></span>
+         <% else %>
+         <%= link_to '<span class="glyphicon glyphicon-chevron-down"></span>'.html_safe, dislike_pytanium_path(@pytania) %>
+         <% end %>
+
+      </div>
+      <div class="row">
+        <% if current_user.voted_for? @pytania %>
+          <% if current_user.voted_up_on? @pytania %>
+          <%= link_to 'cofnij'.html_safe, like_pytanium_path(@pytania) %>
+          <% end %>
+          <% if current_user.voted_down_on? @pytania %>
+          <%= link_to 'cofnij'.html_safe, dislike_pytanium_path(@pytania) %>
+          <% end %>
+        <% end %>
+
+      </div>
+
+    </div>
+   </div>
+  <div class="col-md-11">         
  <div class="page-header">
           <h3><%= @pytania.title %></h3>
         </div><%= gravatar_for @pytania.user %>
@@ -9,18 +46,56 @@
       <%= link_to @pytania.user.name, @pytania.user %>
 
         <%= markdown @pytania.content %>
-
-
+</div>
+</div>
 <hr />
 <ul class="replies">
 
   <% @pytania.replies.each do |reply| %>
     <li>
+<div class="row">
+   <div class="col-md-1">
 
+    <div class="pytanie odpowiedz btn btn-default col-md-1">
+      <div class="row">
+        <% if current_user.voted_for? reply %>
+        <span class="glyphicon glyphicon-chevron-up voted"></span>
+         <% else %>
+         <%= link_to '<span class="glyphicon glyphicon-chevron-up"></span>'.html_safe, like_pytanium_path(reply) %>
+         <% end %>
 
+      </div>
+      <div class="row">
+        <%= reply.score %>
+      </div>
+      <div class="row">
+        <% if current_user.voted_for? reply %>
+        <span class="glyphicon glyphicon-chevron-down voted"></span>
+         <% else %>
+         <%= link_to '<span class="glyphicon glyphicon-chevron-down"></span>'.html_safe, dislike_pytanium_path(reply) %>
+         <% end %>
+
+      </div>
+      <div class="row">
+        <% if current_user.voted_for? reply %>
+          <% if current_user.voted_up_on? reply %>
+          <%= link_to 'cofnij'.html_safe, like_pytanium_path(reply) %>
+          <% end %>
+          <% if current_user.voted_down_on? reply %>
+          <%= link_to 'cofnij'.html_safe, dislike_pytanium_path(reply) %>
+          <% end %>
+        <% end %>
+
+      </div>
+
+    </div>
+   </div>
+      <div class="col-md-11">    
       <%= gravatar_for reply.user %><span>Napisane <%= time_ago_in_words reply.created_at %> temu, przez </span>
       <%= link_to reply.user.name, reply.user %>
       <p><%= markdown reply.content %></p>
+      </div>
+      </div>
     </li>
   <% end %>
 </ul>

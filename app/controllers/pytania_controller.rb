@@ -8,7 +8,7 @@ class PytaniaController < ApplicationController
 
   def show
     @pytania = Pytanium.find(params[:id])
-    
+
   end
 
 
@@ -50,5 +50,43 @@ class PytaniaController < ApplicationController
       else
         render action: "new" 
       end
+  end
+
+    def like
+    @wykop = Pytanium.find(params[:id])
+    
+    if current_user.voted_as_when_voted_for(@wykop)==nil
+      @wykop.liked_by current_user
+
+      flash[:success] = "polubiles wpis!"
+
+      redirect_to pytanium_url(@wykop)
+    else
+      @wykop.unliked_by current_user
+
+      flash[:success] = "anulowano glos"
+
+      redirect_to pytanium_url(@wykop)
+    end
+
+  end
+
+  def dislike
+    @pytanie = Pytanium.find(params[:id])
+  
+    if current_user.voted_as_when_voted_for(@pytanie)==nil
+      @pytanie.downvote_from current_user
+
+      flash[:success] = "wpis Ci sie nie spodobal!"
+
+      redirect_to pytanium_url(@pytanie)
+
+    else
+      @pytanie.unliked_by current_user
+
+      flash[:success] = "anulowano glos"
+
+      redirect_to pytanium_url(@pytanie)
+    end
   end
 end

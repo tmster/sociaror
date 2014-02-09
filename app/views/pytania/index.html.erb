@@ -8,10 +8,18 @@
 
 
 <% @pytania.each do |pytanie| %>
-
+<div class="row">
+	 <div class="col-md-1">
+	 	<div class="pytania btn btn-default col-md-1">
+	 		<%= pytanie.score %>
+	 	</div>
+	 </div>
+     <div class="col-md-11">
           <div class="title"><%= link_to pytanie.title, pytanium_url(pytanie) %></div>
 
         <p>Dodane przez <%= link_to pytanie.user.name, user_url(pytanie.user) %>, dnia <%= time_tag pytanie.created_at  ,datetime: pytanie.created_at %>, odpowiedzi 0</p>
+    </div>
+</div>
 <% end %>
 
 <%= will_paginate %>

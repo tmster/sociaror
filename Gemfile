@@ -10,6 +10,7 @@ gem 'rails-i18n', '~> 3.0.0' # For 3.x
 gem 'rails-bootstrap-markdown'
 gem 'redcarpet'
 gem 'acts_as_commentable', '3.0.1'
+gem 'acts_as_votable', '~> 0.7.1'
 group :development do
   gem 'sqlite3', '1.3.5'
 

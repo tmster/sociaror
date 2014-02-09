@@ -4,5 +4,5 @@ class Pytanium < ActiveRecord::Base
   belongs_to :parent, :class_name => "Pytanium", :foreign_key => "parent_pytania_id"
 
   has_many :replies, :class_name => "Pytanium", :foreign_key => "parent_pytania_id"
-
+  acts_as_votable
 end

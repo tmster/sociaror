@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_many :news
   has_many :wykops
   has_many :pytanium
-
+  acts_as_voter
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
 

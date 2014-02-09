@@ -37,4 +37,42 @@ class WykopsController < ApplicationController
       end
     
   end
+
+  def like
+    @wykop = Wykop.find(params[:id])
+    
+    if current_user.voted_as_when_voted_for(@wykop)==nil
+      @wykop.liked_by current_user
+
+      flash[:success] = "polubiles wpis!"
+
+      redirect_to wykop_url(@wykop)
+    else
+      @wykop.unliked_by current_user
+
+      flash[:success] = "anulowano glos"
+
+      redirect_to wykop_url(@wykop)
+    end
+
+  end
+
+  def dislike
+    @wykop = Wykop.find(params[:id])
+  
+    if current_user.voted_as_when_voted_for(@wykop)==nil
+      @wykop.downvote_from current_user
+
+      flash[:success] = "wpis Ci sie nie spodobal!"
+
+      redirect_to wykop_url(@wykop)
+
+    else
+      @wykop.unliked_by current_user
+
+      flash[:success] = "anulowano glos"
+
+      redirect_to wykop_url(@wykop)
+    end
+  end
 end

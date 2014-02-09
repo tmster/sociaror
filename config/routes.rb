@@ -4,8 +4,12 @@ Sociaror::Application.routes.draw do
   resources :pytania
 
 
-  resources :wykops
-
+  resources :wykops do
+     member do 
+      get  :like
+      get  :dislike
+    end
+  end
 
   resources :comments, :only => [:create]
   resources :news 

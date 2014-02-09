@@ -3,19 +3,59 @@
       <div class="col-xs-12 col-sm-9">
       
 
-<%= will_paginate %>
+<%= will_paginate @wykops %>
 
 
 
 <% @wykops.each do |wykop| %>
+<div class="row">
+	 <div class="col-md-1">
+
+	 	<div class="wykop btn btn-primary col-md-1">
+		 	<div class="row">
+		 		<% if current_user.voted_for? wykop %>
+		 		<span class="glyphicon glyphicon-chevron-up voted"></span>
+		 		 <% else %>
+		 		 <%= link_to '<span class="glyphicon glyphicon-chevron-up"></span>'.html_safe, like_wykop_path(wykop) %>
+		 		 <% end %>
+
+		 	</div>
+			<div class="row">
+	 			<%= wykop.score %>
+	 		</div>
+	 		<div class="row">
+	 			<% if current_user.voted_for? wykop %>
+		 		<span class="glyphicon glyphicon-chevron-down voted"></span>
+		 		 <% else %>
+		 		 <%= link_to '<span class="glyphicon glyphicon-chevron-down"></span>'.html_safe, dislike_wykop_path(wykop) %>
+		 		 <% end %>
+
+	 		</div>
+	 		<div class="row">
+	 			<% if current_user.voted_for? wykop %>
+		 		  <% if current_user.voted_up_on? wykop %>
+		 		 	<%= link_to 'cofnij'.html_safe, like_wykop_path(wykop) %>
+		 		  <% end %>
+	 			  <% if current_user.voted_down_on?wykop %>
+		 		 	<%= link_to 'cofnij'.html_safe, dislike_wykop_path(wykop) %>
+		 		  <% end %>
+		 		<% end %>
+
+	 		</div>
+
+	 	</div>
+	 </div>
+  <div class="col-md-11">
  <div class="page-header">
           <h3><%= link_to wykop.title, wykop_url(wykop) %></h3>
         </div>
         <p>Dodane przez <%= link_to wykop.user.name, user_url(wykop.user) %>, dnia <%= time_tag wykop.created_at  ,datetime: wykop.created_at %>, napisano <%= link_to "#{wykop.comments.count} komentarzy", wykop_url(wykop) %>, url: <%= link_to wykop.url, wykop.url %></p>
         <div class="lead"><%= markdown wykop.summary %></div>
+        </div>    
+</div>        
 <% end %>
 
-<%= will_paginate %>
+<%= will_paginate @wykops %>
 
 </div><!--/row-->
 

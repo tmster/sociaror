@@ -5,6 +5,10 @@ class WykopsController < ApplicationController
     @wykops = Wykop.where(:status => 1).paginate(page: params[:page], :per_page => 5).order('id DESC')
   end
 
+  def best
+    @wykops = Wykop.where(:status => 1).paginate(page: params[:page], :per_page => 5).order('cached_votes_score ASC')
+    render "index"
+  end
 
   def show
     @wykop = Wykop.find(params[:id])

@@ -1,4 +1,5 @@
 Sociaror::Application.routes.draw do
+  match '/wykops/best',  to: 'wykops#best'
 
 
   resources :pytania do

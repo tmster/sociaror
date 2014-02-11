@@ -1,7 +1,7 @@
 Sociaror::Application.routes.draw do
   match '/wykops/best',  to: 'wykops#best'
 
-
+  match '/pytania/best',  to: 'pytania#best'
   resources :pytania do
      member do 
       get  :like

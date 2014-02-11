@@ -1,7 +1,15 @@
 <div class="list-group">
             <a class="list-group-item active">Pytania i odpowiedzi</a>
             <%= link_to "Dodaj", new_pytanium_path, :class=>"list-group-item" %>
-            <%= link_to "Najnowsze", wykops_path, :class=>"list-group-item" %>
-            <%= link_to "Najlepsze", wykops_path, :class=>"list-group-item" %>
+            <% if controller.action_name=="index" %>
+            <strong><%= link_to "Najnowsze", pytania_path, :class=>"list-group-item" %></strong>
+            <% else %>
+            <%= link_to "Najnowsze", pytania_path, :class=>"list-group-item" %>
+            <% end %>
 
+            <% if controller.action_name=="best" %>
+            <strong><%= link_to "Najlepsze", pytania_best_path, :class=>"list-group-item" %></strong>
+            <% else %>
+            <%= link_to "Najlepsze", pytania_best_path, :class=>"list-group-item" %>
+            <% end %>
  </div>

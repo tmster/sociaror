@@ -4,7 +4,11 @@ class PytaniaController < ApplicationController
   def index
     @pytania = Pytanium.where(:status => 1).paginate(page: params[:page], :per_page => 5).order('id DESC')
   end
-
+  
+  def best
+    @pytania = Pytanium.where(:status => 1).paginate(page: params[:page], :per_page => 5).order('cached_votes_score ASC')
+    render "index"
+  end
 
   def show
     @pytania = Pytanium.find(params[:id])

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140209110111) do
+ActiveRecord::Schema.define(:version => 20140211173954) do
 
   create_table "comments", :force => true do |t|
     t.string   "title",            :limit => 50, :default => ""
@@ -43,9 +43,20 @@ ActiveRecord::Schema.define(:version => 20140209110111) do
     t.string   "title"
     t.text     "content"
     t.integer  "status"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+    t.integer  "cached_votes_total",    :default => 0
+    t.integer  "cached_votes_score",    :default => 0
+    t.integer  "cached_votes_up",       :default => 0
+    t.integer  "cached_votes_down",     :default => 0
+    t.integer  "cached_weighted_score", :default => 0
   end
+
+  add_index "pytania", ["cached_votes_down"], :name => "index_pytania_on_cached_votes_down"
+  add_index "pytania", ["cached_votes_score"], :name => "index_pytania_on_cached_votes_score"
+  add_index "pytania", ["cached_votes_total"], :name => "index_pytania_on_cached_votes_total"
+  add_index "pytania", ["cached_votes_up"], :name => "index_pytania_on_cached_votes_up"
+  add_index "pytania", ["cached_weighted_score"], :name => "index_pytania_on_cached_weighted_score"
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
@@ -97,8 +108,19 @@ ActiveRecord::Schema.define(:version => 20140209110111) do
     t.text     "summary"
     t.string   "url"
     t.integer  "status"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+    t.integer  "cached_votes_total",    :default => 0
+    t.integer  "cached_votes_score",    :default => 0
+    t.integer  "cached_votes_up",       :default => 0
+    t.integer  "cached_votes_down",     :default => 0
+    t.integer  "cached_weighted_score", :default => 0
   end
+
+  add_index "wykops", ["cached_votes_down"], :name => "index_wykops_on_cached_votes_down"
+  add_index "wykops", ["cached_votes_score"], :name => "index_wykops_on_cached_votes_score"
+  add_index "wykops", ["cached_votes_total"], :name => "index_wykops_on_cached_votes_total"
+  add_index "wykops", ["cached_votes_up"], :name => "index_wykops_on_cached_votes_up"
+  add_index "wykops", ["cached_weighted_score"], :name => "index_wykops_on_cached_weighted_score"
 
 end
